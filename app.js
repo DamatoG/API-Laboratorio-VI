@@ -1,19 +1,9 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT
+//Buenas practicas a la hora de importar:
+//1 - Paquetes NODE
+//2 - Paquetes de terceros
+//3 - Paquetes nuestros
+require('dotenv').config();
+const Server = require('./models/server'); //Esta clase server esta visible porque la exportamos en server.js
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.get('/users', (req, res) => {
-    res.send('Listado de usuarios')
-  })
-
-app.get('/info', (req, res) => {
-    res.sendFile( __dirname + '/public/')
-})
-
-app.listen(port || 3000, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+const server = new Server(); //Instancio la clase Server
+server.listen() //Llamo al metodo listen de la clase Server
