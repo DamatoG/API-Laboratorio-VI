@@ -1,5 +1,8 @@
 const express = require('express')
 const cors = require ('cors')
+const request = require('request'); // "Request" library
+const querystring = require('querystring');
+const cookieParser = require('cookie-parser');
 class Server {
 
     constructor(){
@@ -16,7 +19,9 @@ class Server {
 
     middleware(){
        this.app.use(cors());
+       //Una vez configurada la carpeta publica la ruta raiz (/) es omitida.
        this.app.use(express.static('public'));
+       this.app.use(cookieParser());
     }
 
 
@@ -24,12 +29,11 @@ class Server {
         // this.app.get('/', (req, res) => {
         //     res.send('Hello World!')
         //   })
-          
-        this.app.get('/user', (req, res) => {
-              res.send('Listado de usuarios')
-            })
-          
         
+        this.app.use('', require('../routes/auth'));
+
+        this.app.use('', require('../routes/artista'));
+      
         //Esta ruta atrapa a todos los endpoint que no estan declarados
         this.app.all('*', (req, res) => {
             res.send('400 Página no encontrada')
