@@ -33,6 +33,8 @@ class Server {
         this.app.use('', require('../routes/auth'));
 
         this.app.use('', require('../routes/artista'));
+
+        this.app.use('', require('../routes/playlist') )
       
         //Esta ruta atrapa a todos los endpoint que no estan declarados
         this.app.all('*', (req, res) => {

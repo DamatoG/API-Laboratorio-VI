@@ -2,6 +2,7 @@ const querystring = require('querystring');
 const request = require('request');
 const axios = require('axios');
 const { send } = require('process');
+const { response } = require('express');
 
 var client_id = process.env.CLIENT_ID // Your client id
 var client_secret = process.env.CLIENT_SECRET // Your secret
@@ -144,7 +145,8 @@ getRefreshToken = function(req, res) {
 //   ).then( function(response){
 //     token = response.access_token
 //     console.log(response.access_token)
-//   }).catch(function (err){ console.log(err)})
+//   }).catch(function (err){ 
+//     console.log(err)})
 
 //   console.log(res)
 

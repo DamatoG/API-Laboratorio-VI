@@ -7,7 +7,7 @@ routerAuth = Router()
 routerAuth.get('/login', getLogin);
 routerAuth.get('/callback', getCallback);
 routerAuth.get('/refresh_token', getRefreshToken);
-// router.get('/login', getToken);
+// routerAuth.post('/login', getToken);
 
 
 module.exports = routerAuth;
