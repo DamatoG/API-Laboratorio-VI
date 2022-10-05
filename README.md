@@ -26,3 +26,5 @@ La respuesta de dicha peticion es un access_token, el cual es necesario configur
 
 
 DOCUMENTACION JSON --> https://documenter.getpostman.com/view/18076612/2s83zdwS74
+
+LINK HEROKU --> https://api-lab4-tup.herokuapp.com/
