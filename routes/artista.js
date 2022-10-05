@@ -3,10 +3,6 @@ const { getArtista, getAutores, getTracksPopularesByArtista } = require("../cont
 
 const router = Router();
 
-
-
 router.get('/artista/:id', getArtista);
-router.get('/artista/:id/top-tracks', getTracksPopularesByArtista);
-
 
 module.exports = router;
