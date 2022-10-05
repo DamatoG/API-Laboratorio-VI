@@ -10,8 +10,11 @@ Pasos para ejecutar la aplicacion en entorno local:
 Cada consulta a la API utiliza un access token para realizar peticiones a la API de Spotify. Pasos para para obtenerlo:
 
 1- Ingresar a: https://developer.spotify.com/dashboard
+
 2- Login con usuario y contraseña personal de Spotify
+
 3- Crear nueva aplcación
+
 4- Realizar una peticion post a la la url https://accounts.spotify.com/api/token, enviando en el header una autorizacion basic codificada en base64 utilizando client_id y client_secret otorgado por sportify
 
 ej:
