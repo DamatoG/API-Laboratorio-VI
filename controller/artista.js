@@ -1,5 +1,4 @@
-const { request, response, query } = require('express')
-const { param } = require('../routes/artista')
+const { request, response } = require('express')
 
 const axios = require('axios').default
 
@@ -15,16 +14,20 @@ getArtista = (req = request, res = response) => {
             }})
         .then(response => {
             console.log(response.data)
+            //Estandarizar formatos de salida json
             res.send(response.data);
         })
         .catch((error) => {
             console.log(error.response.data)
+            //Estandarizar formatos de salida json
             res.send(error.response.data);
     })
 }
 
+
 module.exports = {
-    getArtista}
+    getArtista
+}
 
 
 

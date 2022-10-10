@@ -8,7 +8,7 @@ const axios = require('axios').default
 getPlaylistById = (req = request, res = response) => {
     
     const {playlist_id} = req.params;
-    
+    //estandarizar formato de salida json
     axios.get(
             'https://api.spotify.com/v1/playlists/' + playlist_id,
             {headers:{
@@ -28,7 +28,7 @@ getPlaylistById = (req = request, res = response) => {
 getTracksDePlaylist = (req = request, res = response) => {
 
     const {playlist_id} = req.params;
-
+    //estandarizar formato de salida json
     axios.get(
         'https://api.spotify.com/v1/playlists/' + playlist_id +'/tracks',
         {headers:{
@@ -52,7 +52,7 @@ buscarTrackPorPopularidad = (req = request, res = response) => {
     let {popularity} = req.query
 
 
-
+    //estandarizar formato de salida json
     axios.get(
         'https://api.spotify.com/v1/playlists/' + playlist_id +'/tracks',
         {headers:{
@@ -69,7 +69,7 @@ buscarTrackPorPopularidad = (req = request, res = response) => {
     })
     .catch((error) => {
         res.send(error.response);
-})
+    })
 }
 
 module.exports = {
@@ -77,7 +77,7 @@ module.exports = {
     getTracksDePlaylist,
     buscarTrackPorPopularidad
     
-    }
+}
 
 
 
