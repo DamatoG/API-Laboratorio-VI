@@ -1,7 +1,6 @@
 const express = require('express')
 const cors = require ('cors')
 const request = require('request'); // "Request" library
-const querystring = require('querystring');
 const cookieParser = require('cookie-parser');
 class Server {
 
@@ -30,14 +29,20 @@ class Server {
         //     res.send('Hello World!')
         //   })
         
+        //Se recomienda utilizar un path a nive de url
+        //Ej: this.app.use('/v1/artist', require('../routes/artista'));
         this.app.use('', require('../routes/auth'));
 
         this.app.use('', require('../routes/artista'));
 
         this.app.use('', require('../routes/playlist') )
+
+        //Sugerencia varios registros ruta sin id´s 
+        this.app.use('/v1/newalbums', require('../routes/albums'));
       
         //Esta ruta atrapa a todos los endpoint que no estan declarados
         this.app.all('*', (req, res) => {
+            //estandarizar formato de salida json
             res.send('400 Página no encontrada')
         })
     }
